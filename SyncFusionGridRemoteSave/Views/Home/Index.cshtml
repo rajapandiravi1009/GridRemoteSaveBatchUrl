@@ -1,0 +1,18 @@
+﻿@using Syncfusion.EJ2
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Grid</h2>
+<ejs-grid id="Grid" allowSorting="true" allowPaging="true" toolbar="@(new List<string>() { "Add","Delete","Update", "Cancel" })">
+    <e-data-manager json="@ViewBag.DataSource" adaptor="RemoteSaveAdaptor" batchUrl="/Home/BatchUpdate"></e-data-manager>
+    <e-grid-editSettings allowDeleting="true" allowEditing="true" allowAdding="true" mode="Batch"></e-grid-editSettings>
+    <e-grid-columns>
+        <e-grid-column field="OrderID" headerText="Order ID" isPrimaryKey="true" textAlign="Right" width="100"></e-grid-column>
+        <e-grid-column field="EmployeeID" headerText="Employee ID" textAlign="Right" width="120"></e-grid-column>
+        <e-grid-column field="CustomerID" headerText="Customer ID" type="string" width="120"></e-grid-column>
+        <e-grid-column field="ShipCountry" headerText="Ship Country" width="150"></e-grid-column>
+        <e-grid-column field="ShipName" headerText="Ship Name" width="150"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>
